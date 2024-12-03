@@ -36,7 +36,8 @@ import com.google.samples.apps.nowinandroid.core.navigation.NiaNavigatorProvider
 import com.google.samples.apps.nowinandroid.core.ui.TrackDisposableJank
 import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.BookmarksNavigator
 import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.BookmarksRoute
-import com.google.samples.apps.nowinandroid.feature.foryou.navigation.navigateToForYou
+import com.google.samples.apps.nowinandroid.feature.foryou.navigation.ForYouBaseRoute
+import com.google.samples.apps.nowinandroid.feature.foryou.navigation.ForYouNavigator
 import com.google.samples.apps.nowinandroid.feature.interests.navigation.navigateToInterests
 import com.google.samples.apps.nowinandroid.feature.search.navigation.navigateToSearch
 import com.google.samples.apps.nowinandroid.navigation.TopLevelDestination
@@ -161,8 +162,13 @@ class NiaAppState(
             }
 
             when (topLevelDestination) {
-                FOR_YOU -> navController.navigateToForYou(topLevelNavOptions)
-                
+                FOR_YOU -> navigatorProvider.get(ForYouNavigator::class.java)
+                    .navigateToRoute(
+                        navController = navController,
+                        route = ForYouBaseRoute,
+                        navOptions = topLevelNavOptions,
+                    )                
+
                 BOOKMARKS -> navigatorProvider.get(BookmarksNavigator::class.java)
                     .navigateToRoute(
                         navController = navController,
