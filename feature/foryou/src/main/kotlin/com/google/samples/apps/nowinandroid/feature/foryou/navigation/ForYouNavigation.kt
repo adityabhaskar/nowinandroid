@@ -28,8 +28,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable data object ForYouRoute // route to ForYou screen
 
-@Serializable data object ForYouBaseRoute // route to base navigation graph
-
 fun NavController.navigateToForYou(navOptions: NavOptions) = navigate(route = ForYouRoute, navOptions)
 
 /**
