@@ -21,9 +21,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.google.samples.apps.nowinandroid.feature.bookmarks.BookmarksRoute
-import kotlinx.serialization.Serializable
-
-@Serializable object BookmarksRoute
 
 fun NavController.navigateToBookmarks(navOptions: NavOptions) =
     navigate(route = BookmarksRoute, navOptions)
