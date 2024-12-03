@@ -25,7 +25,7 @@ import com.google.samples.apps.nowinandroid.feature.foryou.navigation.ForYouBase
 import com.google.samples.apps.nowinandroid.feature.foryou.navigation.ForYouRoute
 import com.google.samples.apps.nowinandroid.feature.interests.navigation.InterestsRoute
 import kotlin.reflect.KClass
-import com.google.samples.apps.nowinandroid.feature.bookmarks.R as bookmarksR
+import com.google.samples.apps.nowinandroid.feature.bookmarks.impl.R as bookmarksR
 import com.google.samples.apps.nowinandroid.feature.foryou.R as forYouR
 import com.google.samples.apps.nowinandroid.feature.search.R as searchR
 
