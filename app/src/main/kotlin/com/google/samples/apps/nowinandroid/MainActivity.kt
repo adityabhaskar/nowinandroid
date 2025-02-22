@@ -40,6 +40,9 @@ import com.google.samples.apps.nowinandroid.core.data.repository.UserNewsResourc
 import com.google.samples.apps.nowinandroid.core.data.util.NetworkMonitor
 import com.google.samples.apps.nowinandroid.core.data.util.TimeZoneMonitor
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.NiaTheme
+import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
+import com.google.samples.apps.nowinandroid.core.model.data.ThemeBrand
+import com.google.samples.apps.nowinandroid.core.navigation.NiaNavigatorProvider
 import com.google.samples.apps.nowinandroid.core.ui.LocalTimeZone
 import com.google.samples.apps.nowinandroid.ui.NiaApp
 import com.google.samples.apps.nowinandroid.ui.rememberNiaAppState
@@ -72,6 +75,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var userNewsResourceRepository: UserNewsResourceRepository
+
+    @Inject
+    lateinit var navigatorProvider: NiaNavigatorProvider
 
     private val viewModel: MainActivityViewModel by viewModels()
 
@@ -135,6 +141,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val appState = rememberNiaAppState(
                 networkMonitor = networkMonitor,
+                navigatorProvider = navigatorProvider,
                 userNewsResourceRepository = userNewsResourceRepository,
                 timeZoneMonitor = timeZoneMonitor,
             )

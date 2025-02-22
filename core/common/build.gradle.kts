@@ -14,11 +14,17 @@
  * limitations under the License.
  */
 plugins {
-    alias(libs.plugins.nowinandroid.jvm.library)
+    alias(libs.plugins.nowinandroid.android.library)
     alias(libs.plugins.nowinandroid.hilt)
 }
 
+android {
+    namespace = "com.google.samples.apps.nowinandroid.core.common"
+}
+
 dependencies {
+    implementation(libs.androidx.navigation.compose)
+
     implementation(libs.kotlinx.coroutines.core)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
