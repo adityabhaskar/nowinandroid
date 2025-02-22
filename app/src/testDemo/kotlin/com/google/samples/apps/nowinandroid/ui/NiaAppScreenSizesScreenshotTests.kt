@@ -16,7 +16,6 @@
 
 package com.google.samples.apps.nowinandroid.ui
 
-import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.Posture
 import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.runtime.CompositionLocalProvider
@@ -117,7 +116,6 @@ class NiaAppScreenSizesScreenshotTests {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
     }
 
-    @OptIn(ExperimentalMaterial3AdaptiveApi::class)
     private fun testNiaAppScreenshotWithSize(width: Dp, height: Dp, screenshotName: String) {
         composeTestRule.setContent {
             CompositionLocalProvider(
