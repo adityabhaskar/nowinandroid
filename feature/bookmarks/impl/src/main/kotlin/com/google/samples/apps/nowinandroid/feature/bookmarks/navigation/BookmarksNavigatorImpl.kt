@@ -21,18 +21,27 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.google.samples.apps.nowinandroid.feature.bookmarks.BookmarksRoute
-import kotlinx.serialization.Serializable
+import com.google.samples.apps.nowinandroid.feature.bookmarks.navigation.BookmarksNavigator.Actions
 
-@Serializable object BookmarksRoute
+internal class BookmarksNavigatorImpl : BookmarksNavigator {
+    override fun navigateToRoute(
+        navController: NavController,
+        route: BookmarksRoute,
+        navOptions: NavOptions?,
+    ) {
+        navController.navigate(route = route, navOptions)
+    }
 
-fun NavController.navigateToBookmarks(navOptions: NavOptions) =
-    navigate(route = BookmarksRoute, navOptions)
-
-fun NavGraphBuilder.bookmarksScreen(
-    onTopicClick: (String) -> Unit,
-    onShowSnackbar: suspend (String, String?) -> Boolean,
-) {
-    composable<BookmarksRoute> {
-        BookmarksRoute(onTopicClick, onShowSnackbar)
+    override fun screen(
+        navGraphBuilder: NavGraphBuilder,
+        navController: NavController,
+        actions: Actions,
+        properties: Unit,
+    ) {
+        with(navGraphBuilder) {
+            composable<BookmarksRoute> {
+                BookmarksRoute(actions.onTopicClick, actions.onShowSnackbar)
+            }
+        }
     }
 }
